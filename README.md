@@ -1,15 +1,18 @@
 # Test
+
 Just testing some random stuff
 [Internal link](/subdir/)
 [Internal link 2](subdir/)
 > Can I do a quote
 > Yes I can
+
 - List
 - a
 - thing
-0. ordered
-0. this
-0. list
+
+1. ordered
+2. this
+3. list
 
 > [!NOTE]
 > Highlights information that users should take into account, even when skimming.
@@ -18,7 +21,7 @@ Just testing some random stuff
 > Crucial information necessary for users to succeed.
 
 > [!WARNING]
-> Critical content demanding immediate user attention due to potential risks.
+> Critical content demanding immediate user attention > due to potential risks.
 
 > **Note**
 > This is a note
@@ -32,10 +35,10 @@ A footnote can also have multiple lines[^2].
   This is a second line.
 
 - [x] #739
-- [ ] https://github.com/octo-org/octo-repo/issues/740
+- [ ] <https://github.com/octo-org/octo-repo/issues/740>
 - [ ] Add delight to the experience when all tasks are complete :tada:
 
-100. First list item
+1. First list item
        - First nested list item
          - Second nested list item
 
@@ -48,13 +51,16 @@ A footnote can also have multiple lines[^2].
  4
 
 - George Washington
-* John Adams
-+ Thomas Jefferson
+
+- John Adams
+
+- Thomas Jefferson
 
 h
  h
 k999
 ö
+
 - j
 . 9
 
