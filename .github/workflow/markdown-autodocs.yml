@@ -2,7 +2,7 @@ name: testworkflow
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   autoupdate-readme:
