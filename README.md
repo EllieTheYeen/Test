@@ -67,3 +67,6 @@ k999
 kk
  lll
 oo
+
+<!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./blogpost.py) -->
+<!-- MARKDOWN-AUTO-DOCS:END -->

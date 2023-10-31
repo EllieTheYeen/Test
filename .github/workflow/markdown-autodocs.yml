@@ -1,0 +1,13 @@
+name: testworkflow
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  autoupdate-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: autodocs
+        uses: dineshsonachalam/markdown-autodocs@v1.0.4
+        # https://github.com/marketplace/actions/markdown-autodocs
