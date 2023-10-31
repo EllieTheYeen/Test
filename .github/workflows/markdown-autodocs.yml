@@ -17,6 +17,6 @@ jobs:
           commit_user_email: 42704150+EllieTheYeen@users.noreply.github.com
           commit_message: Apply automatic changes
           branch: main
-          output_file_paths: '[./README.md ./Junk.md]'
+          output_file_paths: '[./README.md, ./Junk.md]'
           categories: '[code-block]'
         # https://github.com/marketplace/actions/markdown-autodocs
