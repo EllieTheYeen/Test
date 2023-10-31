@@ -37,4 +37,16 @@ A footnote can also have multiple lines[^2].
 - [ ] Add delight to the experience when all tasks are complete :tada:
 
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./excepthooktest.py) -->
+<!-- The below code snippet is automatically added from ./excepthooktest.py -->
+```py
+import sys
+
+def test(*a):
+  print(a)
+  sys.__excepthook__(*a)
+
+sys.excepthook = test
+
+1/0
+```
 <!-- MARKDOWN-AUTO-DOCS:END -->
