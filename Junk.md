@@ -35,3 +35,6 @@ A footnote can also have multiple lines[^2].
 - [x] #739
 - [ ] <https://github.com/octo-org/octo-repo/issues/740>
 - [ ] Add delight to the experience when all tasks are complete :tada:
+
+<!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./excepthooktest.py) -->
+<!-- MARKDOWN-AUTO-DOCS:END -->
