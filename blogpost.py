@@ -13,7 +13,9 @@ if not title:
     exit('No title specified. Exiting')
 
 ftitle = title.strip().replace(' ', '-')
-now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=2)))
+tz = datetime.timezone(datetime.timedelta(hours=2))
+now = datetime.datetime.now()
+now = now.replace(tzinfo=tz)
 
 shor = now.strftime("%Y-%m-%d")
 long = now.strftime(
