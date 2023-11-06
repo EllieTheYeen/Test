@@ -13,8 +13,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: mastodonactiontest
-        uses: EllieTheYeen/MastodonActionTest
+        uses: EllieTheYeen/MastodonActionTest@v1
         with:
+          name: Mastodon Action Test
           email: 42704150+EllieTheYeen@users.noreply.github.com
+          branch: main
           instance: https://botsin.space
           blogbase: https://ellietheyeen.github.io/Test
