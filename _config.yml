@@ -1,0 +1,15 @@
+theme: jekyll-theme-hacker
+title: YeenDeer softness blog
+author: ellietheyeen
+description: >-
+  Ellie the Yeen is a soft YeenDeer and mweeoops
+
+plugins:
+  - jekyll-feed
+  - jekyll-relative-links
+
+relative_links:
+  enabled: true
+  collections: true
+
+timezone: Europe/Stockholm
