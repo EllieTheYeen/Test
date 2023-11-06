@@ -1,0 +1,17 @@
+name: mastodonactiontest
+on:
+  push:
+    branches:
+      - main
+  #workflow_dispatch:
+jobs:
+  autoupdate-readme:
+    runs-on: ubuntu-latest
+    environment: myenv
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: mastodonactiontest
+        uses: ellietheyeen/MastodonActionTest
+        with:
+          email: 42704150+EllieTheYeen@users.noreply.github.com
