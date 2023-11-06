@@ -7,11 +7,14 @@ on:
 jobs:
   autoupdate-readme:
     runs-on: ubuntu-latest
+    name: mastodonactiontest
     environment: myenv
     steps:
       - name: Checkout
         uses: actions/checkout@v3
       - name: mastodonactiontest
-        uses: ellietheyeen/MastodonActionTest
+        uses: EllieTheYeen/MastodonActionTest
         with:
           email: 42704150+EllieTheYeen@users.noreply.github.com
+          instance: https://botsin.space
+          blogbase: https://ellietheyeen.github.io/Test
