@@ -2,7 +2,7 @@
 ---
 {
   {%- for p in site.posts %}
-    {{ p.title | jsonify }}: {{ "https://ellietheyeen.github.io" | append: p.url | jsonify }}
+    {{ p.title | jsonify }}: {{ site.url | append: site.baseurl | append: p.url | jsonify }}
     {%- unless forloop.last %},{% endunless -%}
   {% endfor %}
 }
