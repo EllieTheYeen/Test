@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Sitemaps and indexnow
+title: Sitemaps and IndexNow
 date: 2023-11-08 05:08
 ---
 So there is this whole thing with SEO optimizations and all that and sitemaps and made some sitemap using liquid and it works now I think but it was like a pain to get working and stuff complains about invalid dates.
