@@ -17,14 +17,13 @@
 <url>
   <loc>{{ site.url | append: site.baseurl | append: p.url | urlencode }}</loc>
   <lastmod>{{ p.date }}</lastmod>
-  <priority>1.00</priority>
+  <priority>0.66</priority>
 </url>
 {% endfor %}
 
 {%- for p in site.pages %}
 <url>
   <loc>{{ site.url | append: site.baseurl | append: p.url | urlencode }}</loc>
-  <lastmod>{{ p.date }}</lastmod>
   <priority>0.10</priority>
 </url>
 {% endfor %}
