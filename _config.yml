@@ -4,7 +4,7 @@ author: ellietheyeen
 description: >-
   Ellie the Yeen is a soft YeenDeer and mweeoops
 
-baseurl: /Test
+baseurl: /test
 timezone: Europe/Stockholm
 
 plugins:
