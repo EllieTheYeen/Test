@@ -2,7 +2,7 @@
 layout: default
 ---
 <div id="top_links">
-    <a href="{{ site.url }}" title="Main page">Home</a>
+    <a href="{{ site.baseurl }}" title="Main page">Home</a>
 </div>
 
 {%- if page.title -%}
@@ -20,7 +20,7 @@ By {{ site.author | escape }}
 
 <div id="bottom_links">
     <a href="#a-title" title="Go to the top of the page">Top</a>
-    <a href="{{ site.url }}" title="Go to the main page">Home</a>
+    <a href="{{ site.baseurl }}" title="Go to the main page">Home</a>
     <a href="/feed.xml" title="The RSS feed">RSS</a>
     <a href="{{ page.path | prepend: 'https://github.com/EllieTheYeen/Test/blob/main/' }}" title="Source of this page">Source</a>
 </div>
