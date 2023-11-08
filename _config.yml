@@ -12,4 +12,6 @@ relative_links:
   enabled: true
   collections: true
 
+baseurl: /Test
+
 timezone: Europe/Stockholm
