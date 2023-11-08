@@ -4,6 +4,9 @@ author: ellietheyeen
 description: >-
   Ellie the Yeen is a soft YeenDeer and mweeoops
 
+baseurl: /Test
+timezone: Europe/Stockholm
+
 plugins:
   - jekyll-feed
   - jekyll-relative-links
@@ -11,7 +14,3 @@ plugins:
 relative_links:
   enabled: true
   collections: true
-
-baseurl: /Test
-
-timezone: Europe/Stockholm
