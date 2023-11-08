@@ -3,12 +3,15 @@ on:
   push:
     branches:
       - main
+    paths:
+      - '_posts/*.md'
   #workflow_dispatch:
 jobs:
   mastodonactiontest:
     runs-on: ubuntu-latest
     name: mastodonactiontest
     environment: myenv
+    #needs: pages-build-deployment
     steps:
       - name: Checkout
         uses: actions/checkout@v3

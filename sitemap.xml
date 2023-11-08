@@ -1,0 +1,32 @@
+---
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+<url>
+  <loc>{{ site.url }}/</loc>
+  <lastmod>{{ date }}</lastmod>
+  <priority>1.00</priority>
+</url>
+
+{%- for p in site.posts %}
+<url>
+  <loc>{{ site.url | append: p.url | urlencode }}</loc>
+  <lastmod>{{ p.date }}</lastmod>
+  <priority>1.00</priority>
+</url>
+{% endfor %}
+
+{%- for p in site.pages %}
+<url>
+  <loc>{{ site.url | append: p.url | urlencode }}</loc>
+  <lastmod>{{ p.date }}</lastmod>
+  <priority>0.10</priority>
+</url>
+{% endfor %}
+
+</urlset>
