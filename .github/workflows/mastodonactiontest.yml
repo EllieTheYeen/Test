@@ -1,11 +1,11 @@
 name: mastodonactiontest
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - '_posts/*.md'
-  #workflow_dispatch:
+#  push:
+#    branches:
+#      - main
+#    paths:
+#      - '_posts/*.md'
+  workflow_dispatch:
 jobs:
   mastodonactiontest:
     runs-on: ubuntu-latest
