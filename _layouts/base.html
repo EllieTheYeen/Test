@@ -11,11 +11,14 @@ layout: default
 
 {{ content }}
 
-{%- if page.author != nil -%}
+{%- if page.author or site.author -%}
+<div id="author">
+{%- if page.author -%}
 By {{ page.author }}
-{%- else if site.author != nil -%}
-By {{ site.author | escape }}
 {%- else -%}
+By {{ site.author }}
+{%- endif -%}
+</div>
 {%- endif -%}
 
 <div id="bottom_links">
