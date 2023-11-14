@@ -1,11 +1,12 @@
 name: mastodonactiontest
 on:
-#  push:
-#    branches:
-#      - main
+  workflow_dispatch:
+  push:
+    branches:
+      - main
 #    paths:
 #      - '_posts/*.md'
-  workflow_dispatch:
+
 jobs:
   mastodonactiontest:
     runs-on: ubuntu-latest
@@ -16,7 +17,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: mastodonactiontest
-        uses: EllieTheYeen/MastodonActionTest@v1
+        run: python3 action.py -name '${{ inputs.name }}' -email '${{ inputs.email }}' -branch '${{ inputs.branch }}' -instance '${{ inputs.instance }}' -blogbase '${{ inputs.blogbase }}'
+        shell: bash
         env:
           MASTODON_TOKEN: ${{ secrets.MASTODON_TOKEN }}
         with:
