@@ -17,11 +17,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: mastodonactiontest
-        run: python3 action.py -name '${{ inputs.name }}' -email '${{ inputs.email }}' -branch '${{ inputs.branch }}' -instance '${{ inputs.instance }}' -blogbase '${{ inputs.blogbase }}'
+        run: python3 action.py -name '${{ env.name }}' -email '${{ env.email }}' -branch '${{ env.branch }}' -instance '${{ env.instance }}' -blogbase '${{ env.blogbase }}'
         shell: bash
         env:
           MASTODON_TOKEN: ${{ secrets.MASTODON_TOKEN }}
-        with:
           name: Mastodon Action Test
           email: 42704150+EllieTheYeen@users.noreply.github.com
           branch: main
