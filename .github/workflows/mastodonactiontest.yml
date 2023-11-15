@@ -17,7 +17,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: mastodonactiontest
-        run: python3 action.py -name '${{ env.name }}' -email '${{ env.email }}' -branch '${{ env.branch }}' -instance '${{ env.instance }}' -blogbase '${{ env.blogbase }}'
+        run: python3 action.py -name '${{ env.name }}' -email '${{ env.email }}' -branch '${{ env.branch }}' -instance '${{ env.instance }}' -blogbase '${{ env.blogbase }}' -gist '${{ env.gist }}'
         shell: bash
         env:
           MASTODON_TOKEN: ${{ secrets.MASTODON_TOKEN }}
