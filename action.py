@@ -42,7 +42,7 @@ if __name__ == "__main__":
 
     print_and_run(f"git config --global user.name {shlex.quote(args.name)}")
     print_and_run(f"git config --global user.email {shlex.quote(args.email)}")
-    print_and_run(f"git checkout -m {shlex.quote(args.branch)}")
+    print_and_run(f"git checkout -B {shlex.quote(args.branch2)}")
 
     post_file = "testposts.csv"
     posts = {}
@@ -55,8 +55,10 @@ if __name__ == "__main__":
     except:
         pass
 
+    print_and_run(f"git checkout -B {shlex.quote(args.branch1)}")
+
     found = None
-    for a in os.listdir("/_posts"):
+    for a in os.listdir("_posts"):
         if not a:
             continue
         if not post_regex.match(a):
@@ -68,6 +70,8 @@ if __name__ == "__main__":
     else:
         print("No new posts found, exiting")
         exit()
+
+    print_and_run(f"git checkout -B {shlex.quote(args.branch2)}")
 
     msg = (
         f"New post: {args.blogbase}/{found.replace('-', '/', 3).rsplit('.', 1)[0]}.html"
@@ -101,4 +105,4 @@ if __name__ == "__main__":
     print_and_run(f"git add {shlex.quote(post_file)}")
     commit_msg = f"Update {post_file} with post {shlex.quote(g['url'])}"
     print_and_run(f"git commit -m {shlex.quote(commit_msg)}")
-    print_and_run(f"git push origin {shlex.quote(args.branch)}")
+    print_and_run(f"git push origin {shlex.quote(args.branch2)}")

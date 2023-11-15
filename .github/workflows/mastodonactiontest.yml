@@ -17,7 +17,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: mastodonactiontest
-        run: python3 action.py -name '${{ env.name }}' -email '${{ env.email }}' -branch '${{ env.branch }}' -instance '${{ env.instance }}' -blogbase '${{ env.blogbase }}' -gist '${{ env.gist }}' -username '${{ env.username }}'
+        run: python3 action.py -name '${{ env.name }}' -email '${{ env.email }}' -branch1 '${{ env.branch1 }}' -branch2 '${{ env.branch2 }}' -instance '${{ env.instance }}' -blogbase '${{ env.blogbase }}' -gist '${{ env.gist }}' -username '${{ env.username }}'
         shell: bash
         env:
           MASTODON_TOKEN: ${{ secrets.MASTODON_TOKEN }}
@@ -25,7 +25,8 @@ jobs:
           gist: d329adb94cbfe39edeb8eac1de0d1361
           name: Mastodon Action Test
           email: 42704150+EllieTheYeen@users.noreply.github.com
-          branch: posts
+          branch1: main
+          branch2: posts
           username: EllieTheYeen
           instance: https://botsin.space
           blogbase: https://ellietheyeen.github.io/test
