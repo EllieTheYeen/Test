@@ -45,7 +45,7 @@ if __name__ == "__main__":
     print_and_run(f"git checkout {shlex.quote(args.branch)}")
 
     with open(os.path.expanduser("~/.git-credentials"), "w") as f:
-        f.write(f"https://{args.username}:{gey}@gist.github.com")
+        f.write(f"https://{args.username}:{gey}@gist.github.com\n")
 
     print_and_run("git config credential.helper store")
 
@@ -65,7 +65,7 @@ if __name__ == "__main__":
         pass
 
     found = None
-    for a in os.listdir("_posts"):
+    for a in os.listdir("../_posts"):
         if not a:
             continue
         if not post_regex.match(a):
