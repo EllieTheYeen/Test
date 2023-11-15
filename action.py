@@ -18,6 +18,7 @@ post_regex = re.compile(r"^[0-9]{4}-[0-9]{2}-[0-9]{2}-.*\.md$")
 if __name__ == "__main__":
     pars = argparse.ArgumentParser()
     pars.add_argument("-name", dest="name", required=True)
+    pars.add_argument("-username", dest="username", required=True)
     pars.add_argument("-gist", dest="gist", required=True)
     pars.add_argument("-email", dest="email", required=True)
     pars.add_argument("-branch", dest="branch", required=True)
@@ -43,7 +44,12 @@ if __name__ == "__main__":
     print_and_run(f"git config user.email {shlex.quote(args.email)}")
     print_and_run(f"git checkout {shlex.quote(args.branch)}")
 
-    print_and_run(f"git clone git@gist.github.com:{shlex.quote(args.gist)}.git thegist")
+    with open(os.path.expanduser("~/.git-credentials"), "w") as f:
+        f.write(f"https://{args.username}:{gey}@gist.github.com")
+
+    print_and_run("git config credential.helper store")
+
+    print_and_run(f"git clone https://gist.github.com/{shlex.quote(args.gist)}.git thegist")
 
     os.chdir("thegist")
 
