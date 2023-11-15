@@ -73,6 +73,7 @@ if __name__ == "__main__":
         exit()
 
     print_and_run(f"git checkout -B {shlex.quote(args.branch2)}")
+    print_and_run("git pull")
 
     msg = (
         f"New post: {args.blogbase}/{found.replace('-', '/', 3).rsplit('.', 1)[0]}.html"
