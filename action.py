@@ -18,6 +18,7 @@ post_regex = re.compile(r"^[0-9]{4}-[0-9]{2}-[0-9]{2}-.*\.md$")
 if __name__ == "__main__":
     pars = argparse.ArgumentParser()
     pars.add_argument("-name", dest="name", required=True)
+    pars.add_argument("-gist", dest="gist", required=True)
     pars.add_argument("-email", dest="email", required=True)
     pars.add_argument("-branch", dest="branch", required=True)
     pars.add_argument("-instance", dest="instance", required=True)
@@ -25,9 +26,15 @@ if __name__ == "__main__":
     args = pars.parse_args()
 
     key = os.environ.get("MASTODON_TOKEN")
+    gey = os.environ.get("GIST_TOKEN")
     if not key:
         exit(
             "MASTODON_TOKEN not found. Check your secrets and environments config for your repository"
+        )
+
+    if not gey:
+        exit(
+            "GIST_TOKEN not found. Check your secrets and environments config for your repository"
         )
 
     print(os.getcwd())
@@ -36,14 +43,18 @@ if __name__ == "__main__":
     print_and_run(f"git config user.email {shlex.quote(args.email)}")
     print_and_run(f"git checkout {shlex.quote(args.branch)}")
 
-    post_file = "all_posts.csv"
+    print_and_run(f"git clone git@gist.github.com:{shlex.quote(args.gist)}.git thegist")
+
+    os.chdir("thegist")
+
+    post_file = "testposts.csv"
     posts = {}
     try:
         with open(post_file) as f:
             for a in csv.reader(f, dialect="unix"):
                 if not a:
                     continue
-                posts[a[0]] = a[1]
+                posts[a[1]] = a[0]
     except:
         pass
 
@@ -87,9 +98,9 @@ if __name__ == "__main__":
 
     with open(post_file, "a") as f:
         c = csv.writer(f, dialect="unix", quoting=csv.QUOTE_MINIMAL)
-        c.writerow([found, g["id"]])
+        c.writerow([g["id"], found])
 
-    #print_and_run(f"git add {shlex.quote(post_file)}")
-    #commit_msg = f"Update posts.csv with post {shlex.quote(g['url'])}"
-    #print_and_run(f"git commit -m {shlex.quote(commit_msg)}")
-    #print_and_run(f"git push origin {shlex.quote(args.branch)}")
+    print_and_run(f"git add {shlex.quote(post_file)}")
+    commit_msg = f"Update {post_file} with post {shlex.quote(g['url'])}"
+    print_and_run(f"git commit -m {shlex.quote(commit_msg)}")
+    print_and_run(f"git push origin {shlex.quote(args.branch)}")

@@ -21,6 +21,8 @@ jobs:
         shell: bash
         env:
           MASTODON_TOKEN: ${{ secrets.MASTODON_TOKEN }}
+          GIST_TOKEN: ${{ secrets.GIST_TOKEN }}
+          gist: d329adb94cbfe39edeb8eac1de0d1361
           name: Mastodon Action Test
           email: 42704150+EllieTheYeen@users.noreply.github.com
           branch: main
