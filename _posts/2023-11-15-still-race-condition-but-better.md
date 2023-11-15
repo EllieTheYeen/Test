@@ -10,7 +10,7 @@ summary:
 
 <https://toot.cat/@GoatSara@botsin.space/111414101692166728>
 
-![Mastodon post: Goatly Tests @GoatSara@botsin.space New post: https://ellietheyeen.github.io/test/20...](/image.png)
+![Mastodon post: Goatly Tests @GoatSara@botsin.space New post: https://ellietheyeen.github.io/test/20...](/test/image.png)
 
 Yep no preview but it does do some branch thingies now instead of gist and that is quite nice working
 
