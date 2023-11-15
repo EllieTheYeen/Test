@@ -105,7 +105,7 @@ if __name__ == "__main__":
         c = csv.writer(f, dialect="unix", quoting=csv.QUOTE_MINIMAL)
         c.writerow([g["id"], found])
 
-    print_and_run(f"git add {shlex.quote(post_file)}")
+    #print_and_run(f"git add {shlex.quote(post_file)}")
     commit_msg = f"Update {post_file} with new post {g['id']}\n{found} {g['url']} "
-    print_and_run(f"git commit -m {shlex.quote(commit_msg)}")
+    print_and_run(f"git commit -am {shlex.quote(commit_msg)}")
     print_and_run(f"git push --force origin {shlex.quote(args.branch2)}")
