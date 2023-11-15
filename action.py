@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import urllib.request
 import argparse
-import shlex
+from shlex import quote as q
 import json
 import csv
 import os
@@ -39,12 +39,12 @@ if __name__ == "__main__":
             "GIST_TOKEN not found. Check your secrets and environments config for your repository"
         )
 
-    print(os.getcwd())
+    print(os.getcwd(), flush=True)
 
-    print_and_run(f"git config --global user.name {shlex.quote(args.name)}")
-    print_and_run(f"git config --global user.email {shlex.quote(args.email)}")
+    print_and_run(f"git config --global user.name {q(args.name)}")
+    print_and_run(f"git config --global user.email {q(args.email)}")
     print_and_run("git config pull.rebase true")
-    print_and_run(f"git checkout -B {shlex.quote(args.branch2)}")
+    print_and_run(f"git switch -f -C {q(args.branch2)}")
 
     post_file = "testposts.csv"
     posts = {}
@@ -57,7 +57,7 @@ if __name__ == "__main__":
     except:
         pass
 
-    print_and_run(f"git checkout -B {shlex.quote(args.branch1)}")
+    print_and_run(f"git switch -f -C {q(args.branch1)}")
 
     found = None
     for a in os.listdir("_posts"):
@@ -70,16 +70,16 @@ if __name__ == "__main__":
             found = a
             break
     else:
-        print("No new posts found, exiting")
+        print("No new posts found, exiting", flush=True)
         exit()
 
-    print_and_run(f"git switch -f -C {shlex.quote(args.branch2)}")
-    print_and_run(f"git pull origin {shlex.quote(args.branch2)} --depth 1")
+    print_and_run(f"git switch -f -C {q(args.branch2)}")
+    print_and_run(f"git pull origin {q(args.branch2)} --depth 1")
 
     msg = (
         f"New post: {found}\n{args.blogbase}/{found.replace('-', '/', 3)}.html"
     )
-    print(msg)
+    print(msg, flush=True)
 
     a = urllib.request.urlopen(
         urllib.request.Request(
@@ -96,16 +96,16 @@ if __name__ == "__main__":
     g = json.loads(d)
 
     if "id" not in g or "url" not in g:
-        print("error when posting")
+        print("error when posting", flush=True)
         exit(g)
 
-    print(f"Posted with id {g['id']!r}")
+    print(f"Posted with id {g['id']!r}", flush=True)
 
     with open(post_file, "a") as f:
         c = csv.writer(f, dialect="unix", quoting=csv.QUOTE_MINIMAL)
         c.writerow([g["id"], found])
 
-    print_and_run(f"git add {shlex.quote(post_file)}")
+    print_and_run(f"git add {q(post_file)}")
     commit_msg = f"Update {post_file} with new post {g['id']}\n{found} {g['url']}"
-    print_and_run(f"git commit -m {shlex.quote(commit_msg)}")
-    print_and_run(f"git push origin {shlex.quote(args.branch2)}")
+    print_and_run(f"git commit -m {q(commit_msg)}")
+    print_and_run(f"git push origin {q(args.branch2)}")
