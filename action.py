@@ -43,7 +43,6 @@ if __name__ == "__main__":
 
     print_and_run(f"git config --global user.name {q(args.name)}")
     print_and_run(f"git config --global user.email {q(args.email)}")
-    #print_and_run("git config --global pull.ff only")
     print_and_run(f"git switch -f -C {q(args.branch2)}")
 
     post_file = "testposts.csv"
@@ -74,8 +73,9 @@ if __name__ == "__main__":
         exit()
 
     print_and_run(f"git switch -f -C {q(args.branch2)}")
+    print_and_run("git config --global pull.rebase false")
     print_and_run("git reset --hard")
-    #print_and_run(f"git pull origin {q(args.branch2)} --depth 1")
+    print_and_run(f"git pull origin {q(args.branch2)} --depth 1 --force")
 
     msg = (
         f"New post: {found}\n{args.blogbase}/{found.replace('-', '/', 3)}.html"
@@ -109,4 +109,4 @@ if __name__ == "__main__":
     print_and_run(f"git add {q(post_file)}")
     commit_msg = f"Update {post_file} with new post {g['id']}\n{found} {g['url']}"
     print_and_run(f"git commit -m {q(commit_msg)}")
-    print_and_run(f"git push origin {q(args.branch2)}")
+    print_and_run(f"git push origin {q(args.branch2)} --force")
