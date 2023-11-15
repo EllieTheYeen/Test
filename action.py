@@ -43,7 +43,6 @@ if __name__ == "__main__":
 
     print_and_run(f"git config --global user.name {q(args.name)}")
     print_and_run(f"git config --global user.email {q(args.email)}")
-    print_and_run("git config pull.rebase true")
     print_and_run(f"git switch -f -C {q(args.branch2)}")
 
     post_file = "testposts.csv"
