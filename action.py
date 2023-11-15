@@ -9,7 +9,7 @@ import re
 
 
 def print_and_run(a):
-    print(a)
+    print(a, flush=True)
     os.system(a)
 
 
@@ -43,6 +43,7 @@ if __name__ == "__main__":
 
     print_and_run(f"git config --global user.name {shlex.quote(args.name)}")
     print_and_run(f"git config --global user.email {shlex.quote(args.email)}")
+    print_and_run("git config pull.rebase true")
     print_and_run(f"git checkout -B {shlex.quote(args.branch2)}")
 
     post_file = "testposts.csv"
