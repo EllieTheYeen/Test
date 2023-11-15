@@ -40,14 +40,14 @@ if __name__ == "__main__":
 
     print(os.getcwd())
 
-    print_and_run(f"git config user.name {shlex.quote(args.name)}")
-    print_and_run(f"git config user.email {shlex.quote(args.email)}")
+    print_and_run(f"git config --global user.name {shlex.quote(args.name)}")
+    print_and_run(f"git config --global user.email {shlex.quote(args.email)}")
     print_and_run(f"git checkout {shlex.quote(args.branch)}")
 
     with open(os.path.expanduser("~/.git-credentials"), "w") as f:
         f.write(f"https://{args.username}:{gey}@gist.github.com\n")
 
-    print_and_run("git config credential.helper store")
+    print_and_run("git config --global credential.helper store")
 
     print_and_run(f"git clone https://gist.github.com/{shlex.quote(args.gist)}.git thegist")
 
