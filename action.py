@@ -75,7 +75,7 @@ if __name__ == "__main__":
     print_and_run(f"git switch -f -C {shlex.quote(args.branch2)}")
 
     msg = (
-        f"New post: {args.blogbase}/{found.replace('-', '/', 3).rsplit('.', 1)[0]}.html"
+        f"New post: {found}\n{args.blogbase}/{found.replace('-', '/', 3)}.html"
     )
     print(msg)
 
@@ -106,4 +106,4 @@ if __name__ == "__main__":
     print_and_run(f"git add {shlex.quote(post_file)}")
     commit_msg = f"Update {post_file} with new post {g['id']}\n{found} {g['url']}"
     print_and_run(f"git commit -m {shlex.quote(commit_msg)}")
-    print_and_run(f"git push --force origin {shlex.quote(args.branch2)}")
+    print_and_run(f"git push origin {shlex.quote(args.branch2)}")
