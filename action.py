@@ -73,7 +73,7 @@ if __name__ == "__main__":
         exit()
 
     print_and_run(f"git switch -f -C {q(args.branch2)}")
-    print_and_run("git config --global pull.rebase false")
+    print_and_run("git config --global pull.rebase true")
     print_and_run("git reset --hard")
     print_and_run(f"git pull origin {q(args.branch2)} --depth 1 --force")
 
