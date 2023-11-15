@@ -44,12 +44,6 @@ if __name__ == "__main__":
     print_and_run(f"git config --global user.email {shlex.quote(args.email)}")
     print_and_run(f"git checkout -m {shlex.quote(args.branch)}")
 
-    print_and_run("git config --global credential.helper store")
-
-    print_and_run(f"git clone https://gist.github.com/{shlex.quote(args.gist)}.git thegist")
-
-    os.chdir("thegist")
-
     post_file = "testposts.csv"
     posts = {}
     try:
@@ -62,7 +56,7 @@ if __name__ == "__main__":
         pass
 
     found = None
-    for a in os.listdir("../_posts"):
+    for a in os.listdir("/_posts"):
         if not a:
             continue
         if not post_regex.match(a):
