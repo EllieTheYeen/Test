@@ -42,10 +42,7 @@ if __name__ == "__main__":
 
     print_and_run(f"git config --global user.name {shlex.quote(args.name)}")
     print_and_run(f"git config --global user.email {shlex.quote(args.email)}")
-    print_and_run(f"git checkout {shlex.quote(args.branch)}")
-
-    with open(os.path.expanduser("~/.git-credentials"), "w") as f:
-        f.write(f"https://{args.username}:{gey}@gist.github.com\n")
+    print_and_run(f"git checkout -m {shlex.quote(args.branch)}")
 
     print_and_run("git config --global credential.helper store")
 
@@ -70,6 +67,7 @@ if __name__ == "__main__":
             continue
         if not post_regex.match(a):
             continue
+        a = a.rsplit(".", 1)[0]
         if a not in posts:
             found = a
             break

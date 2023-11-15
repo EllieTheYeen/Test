@@ -25,7 +25,7 @@ jobs:
           gist: d329adb94cbfe39edeb8eac1de0d1361
           name: Mastodon Action Test
           email: 42704150+EllieTheYeen@users.noreply.github.com
-          branch: main
+          branch: posts
           username: EllieTheYeen
           instance: https://botsin.space
           blogbase: https://ellietheyeen.github.io/test
